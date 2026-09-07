@@ -1,10 +1,11 @@
-import { Home, Pizza, Palette } from "lucide-react";
+import { Home, Pizza, Palette, Landmark } from "lucide-react";
 import type { ProjectMeta } from "../data/projects";
 
 const ICONS: Record<ProjectMeta["key"], typeof Home> = {
   rosarito: Home,
   pizza: Pizza,
   pinturas: Palette,
+  eliot: Landmark,
 };
 
 interface ProjectArtProps {

@@ -1,5 +1,5 @@
 export interface ProjectMeta {
-  key: "rosarito" | "pizza" | "pinturas";
+  key: "rosarito" | "pizza" | "pinturas" | "eliot";
   url: string;
   gradient: string;
 }
@@ -19,5 +19,10 @@ export const PROJECTS: ProjectMeta[] = [
     key: "pinturas",
     url: "https://pinturas-galeria.vercel.app/",
     gradient: "linear-gradient(135deg, #3a2a63 0%, #14101f 100%)",
+  },
+  {
+    key: "eliot",
+    url: "https://palacio-de-eliot.vercel.app/",
+    gradient: "linear-gradient(135deg, #4a3418 0%, #16100a 100%)",
   },
 ];

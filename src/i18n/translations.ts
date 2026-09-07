@@ -101,6 +101,13 @@ export const translations: Record<Lang, Translation> = {
           desc: "Galería de arte digital para exhibir y presentar obras pictóricas, con navegación fluida y enfoque visual.",
           tags: ["React.js", "TypeScript", "Galería"],
         },
+        {
+          n: "04",
+          category: "Cliente",
+          name: "El Palacio de Eliot",
+          desc: "Plataforma inmobiliaria para la presentación y venta de propiedades, con catálogo visual y diseño moderno.",
+          tags: ["React.js", "TypeScript", "UI/UX"],
+        },
       ],
     },
     contact: {
@@ -181,6 +188,13 @@ export const translations: Record<Lang, Translation> = {
           name: "Pinturas Galería",
           desc: "Digital art gallery for showcasing paintings, built with smooth navigation and a visual-first layout.",
           tags: ["React.js", "TypeScript", "Gallery"],
+        },
+        {
+          n: "04",
+          category: "Client",
+          name: "El Palacio de Eliot",
+          desc: "Real-estate platform for showcasing and selling properties, with a visual catalog and modern design.",
+          tags: ["React.js", "TypeScript", "UI/UX"],
         },
       ],
     },

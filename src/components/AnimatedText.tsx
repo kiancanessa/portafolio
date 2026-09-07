@@ -16,7 +16,7 @@ export default function AnimatedText({ text, className }: AnimatedTextProps) {
   const characters = text.split("");
 
   return (
-    <p ref={ref} className={className}>
+    <p ref={ref} className={className} style={{ color: "#ffffff" }}>
       {characters.map((char, i) => {
         const start = i / characters.length;
         const end = start + 1 / characters.length;
@@ -37,11 +37,19 @@ function Char({
   progress: ReturnType<typeof useScroll>["scrollYProgress"];
   range: [number, number];
 }) {
-  const opacity = useTransform(progress, range, [0.2, 1]);
+  const glow = useTransform(progress, range, [0, 1]);
+  const opacity = useTransform(glow, [0, 1], [0.3, 1]);
+  const textShadow = useTransform(
+    glow,
+    (v) => `0 0 ${v * 16}px rgba(255,255,255,${v * 0.9})`
+  );
+
   return (
     <span style={{ position: "relative" }}>
       <span style={{ visibility: "hidden" }}>{char}</span>
-      <motion.span style={{ opacity, position: "absolute", left: 0, top: 0 }}>
+      <motion.span
+        style={{ opacity, textShadow, position: "absolute", left: 0, top: 0 }}
+      >
         {char}
       </motion.span>
     </span>

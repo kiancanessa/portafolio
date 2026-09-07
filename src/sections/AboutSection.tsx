@@ -56,7 +56,7 @@ export default function AboutSection() {
 
         <AnimatedText
           text={t.about.text}
-          className="max-w-[560px] text-center font-medium leading-relaxed text-[#D7E2EA] text-[clamp(1rem,2vw,1.35rem)]"
+          className="max-w-[560px] text-center font-medium leading-relaxed text-[clamp(1rem,2vw,1.35rem)]"
         />
 
         <div className="mt-6 sm:mt-8 md:mt-10">

@@ -1,5 +1,5 @@
 import FadeIn from "../components/FadeIn";
-import Magnet from "../components/Magnet";
+import DevOrb from "../components/DevOrb";
 import ContactButton from "../components/ContactButton";
 import Navbar from "../components/Navbar";
 import { useLang } from "../i18n/LangContext";
@@ -10,11 +10,11 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex h-screen flex-col justify-between overflow-hidden"
+      className="relative flex min-h-screen flex-col justify-between overflow-hidden py-6"
     >
       <Navbar />
 
-      <div className="flex flex-1 flex-col items-center justify-center gap-8 px-6 md:px-10">
+      <div className="flex flex-1 flex-col items-center justify-center gap-8 px-6 py-10 md:px-10">
         <div className="w-full overflow-hidden">
           <FadeIn delay={0.15} y={40}>
             <h1 className="hero-heading w-full whitespace-nowrap text-center font-black uppercase leading-none tracking-tight text-[9vw] sm:text-[10vw] md:text-[11vw] lg:text-[12vw]">
@@ -24,20 +24,7 @@ export default function HeroSection() {
         </div>
 
         <FadeIn delay={0.6} y={30}>
-          <Magnet padding={150} strength={5} className="h-[140px] w-[140px] sm:h-[180px] sm:w-[180px] md:h-[220px] md:w-[220px]">
-            <div
-              className="relative flex h-full w-full items-center justify-center rounded-full border border-white/10"
-              style={{
-                background:
-                  "radial-gradient(circle at 35% 30%, rgba(215,226,234,0.22), rgba(12,12,12,0) 60%), linear-gradient(160deg, rgba(182,0,168,0.16), rgba(118,33,176,0.12))",
-                boxShadow: "0 0 80px -15px rgba(190,76,0,0.3) inset",
-              }}
-            >
-              <span className="hero-heading font-black tracking-tight text-3xl sm:text-4xl md:text-5xl">
-                KSC
-              </span>
-            </div>
-          </Magnet>
+          <DevOrb />
         </FadeIn>
       </div>
 
