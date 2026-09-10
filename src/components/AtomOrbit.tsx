@@ -181,27 +181,6 @@ export default function AtomOrbit() {
         </div>
       </div>
 
-      {/* Pedestal */}
-      <div className="relative -mt-4 h-16 w-[72%] sm:h-20 md:h-24">
-        <div
-          className="absolute inset-x-0 top-0 h-full rounded-[50%] border border-white/10"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(40,26,60,0.9) 0%, rgba(14,12,20,0.95) 55%, rgba(10,10,14,1) 100%)",
-            boxShadow:
-              "0 -1px 30px -6px rgba(182,0,168,0.55), 0 18px 50px -20px rgba(0,0,0,0.9)",
-          }}
-        />
-        <div
-          className="absolute inset-x-[6%] top-[14%] h-[42%] rounded-[50%]"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(97,218,251,0.5), rgba(182,0,168,0.6), rgba(255,140,60,0.5))",
-            filter: "blur(7px)",
-            opacity: 0.65,
-          }}
-        />
-      </div>
     </Magnet>
   );
 }
