@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 interface MagnetProps {
   children: ReactNode;
@@ -18,14 +18,24 @@ export default function Magnet({
   className,
 }: MagnetProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [transform, setTransform] = useState("translate3d(0px, 0px, 0px)");
-  const [transition, setTransition] = useState(inactiveTransition);
 
+  // Escribe el transform directamente en el nodo: con estado de React esto
+  // re-renderizaría todo el subárbol en cada mousemove.
   useEffect(() => {
-    function handleMouseMove(e: MouseEvent) {
-      const el = ref.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
+    const el = ref.current;
+    if (!el) return;
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let frame = 0;
+    let wasActive = false;
+
+    function apply(e: MouseEvent) {
+      frame = 0;
+      const node = ref.current;
+      if (!node) return;
+
+      const rect = node.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
 
@@ -34,22 +44,35 @@ export default function Magnet({
       const isActive = distX < padding && distY < padding;
 
       if (isActive) {
-        const dx = (e.clientX - cx) / strength;
-        const dy = (e.clientY - cy) / strength;
-        setTransition(activeTransition);
-        setTransform(`translate3d(${dx}px, ${dy}px, 0px)`);
-      } else {
-        setTransition(inactiveTransition);
-        setTransform("translate3d(0px, 0px, 0px)");
+        if (!wasActive) node.style.transition = activeTransition;
+        node.style.transform = `translate3d(${(e.clientX - cx) / strength}px, ${
+          (e.clientY - cy) / strength
+        }px, 0px)`;
+      } else if (wasActive) {
+        node.style.transition = inactiveTransition;
+        node.style.transform = "translate3d(0px, 0px, 0px)";
       }
+      wasActive = isActive;
+    }
+
+    function handleMouseMove(e: MouseEvent) {
+      if (frame) return;
+      frame = requestAnimationFrame(() => apply(e));
     }
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [padding, strength, activeTransition, inactiveTransition]);
 
   return (
-    <div ref={ref} className={className} style={{ transform, transition, willChange: "transform" }}>
+    <div
+      ref={ref}
+      className={className}
+      style={{ transition: inactiveTransition, willChange: "transform" }}
+    >
       {children}
     </div>
   );

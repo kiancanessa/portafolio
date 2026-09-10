@@ -1,5 +1,5 @@
 import FadeIn from "../components/FadeIn";
-import DevOrb from "../components/DevOrb";
+import AtomOrbit from "../components/AtomOrbit";
 import ContactButton from "../components/ContactButton";
 import Navbar from "../components/Navbar";
 import { useLang } from "../i18n/LangContext";
@@ -24,7 +24,7 @@ export default function HeroSection() {
         </div>
 
         <FadeIn delay={0.6} y={30}>
-          <DevOrb />
+          <AtomOrbit />
         </FadeIn>
       </div>
 

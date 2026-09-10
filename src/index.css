@@ -67,3 +67,98 @@ body {
     transform: translateY(-10px);
   }
 }
+
+/* ---------- Átomo orbital del hero ---------- */
+/* Cada tecnología viaja por un anillo inclinado en 3D real. El nodo gira con el
+   anillo y luego se contra-rota para quedar siempre de frente a la cámara. */
+
+@keyframes atom-orbit {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes atom-orbit-counter {
+  to {
+    transform: rotateZ(-360deg);
+  }
+}
+
+@keyframes atom-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
+.atom-scene {
+  perspective: 1100px;
+}
+
+.atom-world {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.atom-plane {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: rotateZ(var(--yaw)) rotateX(var(--tilt));
+}
+
+.atom-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  background: var(--ring-glow) border-box;
+  -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.atom-spinner {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: atom-orbit var(--dur) linear infinite;
+  animation-delay: var(--delay);
+}
+
+.atom-node {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+
+.atom-upright {
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: atom-orbit-counter var(--dur) linear infinite;
+  animation-delay: var(--delay);
+}
+
+/* Deshace la inclinación del plano: el nodo queda de frente al espectador */
+.atom-flat {
+  position: absolute;
+  transform: rotateX(calc(-1 * var(--tilt))) rotateZ(calc(-1 * var(--yaw)));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atom-spinner,
+  .atom-upright {
+    animation-duration: 0s;
+    animation-iteration-count: 1;
+  }
+}

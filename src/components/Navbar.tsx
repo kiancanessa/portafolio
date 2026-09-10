@@ -16,14 +16,14 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-      className="flex items-center justify-between px-6 md:px-10 pt-6 md:pt-8"
+      className="flex items-center justify-between gap-3 px-4 pt-6 sm:px-6 md:px-10 md:pt-8"
     >
-      <div className="flex gap-6 md:gap-10">
+      <div className="flex gap-3 sm:gap-6 md:gap-10">
         {links.map((link) => (
           <a
             key={link.href}
             href={link.href}
-            className="text-sm md:text-lg lg:text-[1.4rem] font-medium uppercase tracking-wider text-[#D7E2EA] transition-opacity duration-200 hover:opacity-70"
+            className="whitespace-nowrap text-[11px] font-medium uppercase tracking-wider text-[#D7E2EA] transition-opacity duration-200 hover:opacity-70 sm:text-sm md:text-lg lg:text-[1.4rem]"
           >
             {link.label}
           </a>
@@ -33,7 +33,7 @@ export default function Navbar() {
       <button
         onClick={toggle}
         aria-label="Switch language"
-        className="flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 font-mono text-xs text-[#D7E2EA]/70 transition-colors hover:border-white/30"
+        className="flex shrink-0 items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-2.5 py-1 font-mono text-[10px] text-[#D7E2EA]/70 transition-colors hover:border-white/30 sm:px-3 sm:py-1.5 sm:text-xs"
       >
         <span className={lang === "es" ? "font-semibold text-[#D7E2EA]" : ""}>ES</span>
         <span className="opacity-40">/</span>

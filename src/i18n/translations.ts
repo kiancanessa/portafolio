@@ -16,7 +16,13 @@ interface ProjectItem {
 
 export interface Translation {
   nav: { about: string; services: string; projects: string; contact: string };
-  hero: { greeting: string; name: string; tagline: string; contact: string };
+  hero: {
+    greeting: string;
+    name: string;
+    tagline: string;
+    contact: string;
+    orbit: { frontend: string; ai: string; backend: string; data: string; devops: string };
+  };
   about: { heading: string; text: string };
   services: { heading: string; items: ServiceItem[] };
   projects: { heading: string; live: string; items: ProjectItem[] };
@@ -41,6 +47,13 @@ export const translations: Record<Lang, Translation> = {
       name: "Kian",
       tagline: "ingeniero de sistemas y desarrollador full stack construyendo productos web potenciados con inteligencia artificial",
       contact: "Contáctame",
+      orbit: {
+        frontend: "Frontend",
+        ai: "IA / Machine Learning",
+        backend: "Backend",
+        data: "Datos / IA",
+        devops: "DevOps",
+      },
     },
     about: {
       heading: "Sobre mí",
@@ -96,17 +109,17 @@ export const translations: Record<Lang, Translation> = {
         },
         {
           n: "03",
-          category: "Personal",
+          category: "Cliente",
           name: "Pinturas Galería",
-          desc: "Galería de arte digital para exhibir y presentar obras pictóricas, con navegación fluida y enfoque visual.",
-          tags: ["React.js", "TypeScript", "Galería"],
+          desc: "Galería y tienda del artista Simeón Gonzáles para exhibir y vender obras originales, con carrito y navegación inmersiva.",
+          tags: ["React.js", "TypeScript", "E-commerce"],
         },
         {
           n: "04",
           category: "Cliente",
           name: "El Palacio de Eliot",
-          desc: "Plataforma inmobiliaria para la presentación y venta de propiedades, con catálogo visual y diseño moderno.",
-          tags: ["React.js", "TypeScript", "UI/UX"],
+          desc: "Tienda de regalos, juguetes y novedades con catálogo por categorías y pedidos directos por WhatsApp.",
+          tags: ["React.js", "TypeScript", "WhatsApp"],
         },
       ],
     },
@@ -129,6 +142,13 @@ export const translations: Record<Lang, Translation> = {
       name: "Kian",
       tagline: "a systems engineer & full stack developer building AI-powered web products",
       contact: "Contact Me",
+      orbit: {
+        frontend: "Frontend",
+        ai: "AI / Machine Learning",
+        backend: "Backend",
+        data: "Data / AI",
+        devops: "DevOps",
+      },
     },
     about: {
       heading: "About me",
@@ -184,17 +204,17 @@ export const translations: Record<Lang, Translation> = {
         },
         {
           n: "03",
-          category: "Personal",
+          category: "Client",
           name: "Pinturas Galería",
-          desc: "Digital art gallery for showcasing paintings, built with smooth navigation and a visual-first layout.",
-          tags: ["React.js", "TypeScript", "Gallery"],
+          desc: "Gallery and shop for artist Simeón Gonzáles to showcase and sell original works, with a cart and immersive navigation.",
+          tags: ["React.js", "TypeScript", "E-commerce"],
         },
         {
           n: "04",
           category: "Client",
           name: "El Palacio de Eliot",
-          desc: "Real-estate platform for showcasing and selling properties, with a visual catalog and modern design.",
-          tags: ["React.js", "TypeScript", "UI/UX"],
+          desc: "Gift, toy and novelty shop with a category-based catalog and direct ordering through WhatsApp.",
+          tags: ["React.js", "TypeScript", "WhatsApp"],
         },
       ],
     },

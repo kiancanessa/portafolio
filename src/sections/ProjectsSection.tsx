@@ -51,24 +51,27 @@ function ProjectCard({ index }: { index: number }) {
           <LiveProjectButton href={project.url} />
         </div>
 
-        <div className="flex flex-1 gap-3">
-          <div className="flex w-2/5 flex-col gap-3">
+        <div className="flex min-h-0 flex-1 gap-3">
+          <div className="flex w-2/5 min-h-0 flex-col gap-3">
             <ProjectArt
               project={project}
               variant={1}
-              className="w-full"
+              alt={`${copy.name} — inicio`}
+              className="h-[clamp(90px,13vw,190px)] w-full shrink-0"
               rounded="rounded-[30px] sm:rounded-[40px] md:rounded-[50px]"
             />
             <ProjectArt
               project={project}
               variant={2}
-              className="w-full flex-1"
+              alt={`${copy.name} — interior`}
+              className="w-full min-h-0 flex-1"
               rounded="rounded-[30px] sm:rounded-[40px] md:rounded-[50px]"
             />
           </div>
           <ProjectArt
             project={project}
             variant={3}
+            alt={`${copy.name} — versión móvil`}
             className="w-3/5"
             rounded="rounded-[30px] sm:rounded-[40px] md:rounded-[50px]"
           />

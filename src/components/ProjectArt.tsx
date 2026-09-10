@@ -1,18 +1,21 @@
-import { Home, Pizza, Palette, Landmark } from "lucide-react";
 import type { ProjectMeta } from "../data/projects";
 
-const ICONS: Record<ProjectMeta["key"], typeof Home> = {
-  rosarito: Home,
-  pizza: Pizza,
-  pinturas: Palette,
-  eliot: Landmark,
+/** 1 = hero de escritorio, 2 = vista interior, 3 = versión móvil */
+type Variant = 1 | 2 | 3;
+
+const VARIANT_FILE: Record<Variant, string> = {
+  1: "1",
+  2: "2",
+  3: "mobile",
 };
 
 interface ProjectArtProps {
   project: ProjectMeta;
-  variant?: 1 | 2 | 3;
+  variant?: Variant;
   className?: string;
   rounded?: string;
+  alt?: string;
+  eager?: boolean;
 }
 
 export default function ProjectArt({
@@ -20,40 +23,24 @@ export default function ProjectArt({
   variant = 1,
   className = "",
   rounded = "rounded-[40px] sm:rounded-[50px] md:rounded-[60px]",
+  alt,
+  eager = false,
 }: ProjectArtProps) {
-  const Icon = ICONS[project.key];
+  const src = `/projects/${project.key}-${VARIANT_FILE[variant]}.webp`;
 
   return (
     <div
       className={`relative overflow-hidden ${rounded} ${className}`}
       style={{ background: project.gradient }}
     >
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 30% 20%, rgba(255,255,255,0.14), transparent 55%)",
-        }}
+      <img
+        src={src}
+        alt={alt ?? ""}
+        loading={eager ? "eager" : "lazy"}
+        decoding="async"
+        className="h-full w-full object-cover object-top"
       />
-      <div
-        className="absolute inset-0 opacity-[0.08]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-      <div className="relative flex h-full w-full items-center justify-center">
-        <Icon
-          className="text-white/90"
-          strokeWidth={1.4}
-          style={{
-            width: variant === 2 ? "22%" : "34%",
-            height: variant === 2 ? "22%" : "34%",
-            opacity: variant === 3 ? 0.85 : 0.9,
-          }}
-        />
-      </div>
+      <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
     </div>
   );
 }

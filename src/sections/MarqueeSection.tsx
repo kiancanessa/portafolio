@@ -10,8 +10,10 @@ function buildRow(order: number[], variants: (1 | 2 | 3)[]): Tile[] {
   return [...single, ...single, ...single];
 }
 
-const ROW_1 = buildRow([0, 1, 2, 3, 0, 1, 2, 3], [1, 2, 3, 1, 2, 1, 3, 2]);
-const ROW_2 = buildRow([2, 3, 0, 1, 3, 0, 1, 2], [3, 1, 2, 3, 1, 2, 1, 3]);
+// Sólo capturas de escritorio (1 y 2): la variante móvil es vertical y no encaja
+// en los mosaicos apaisados del marquee.
+const ROW_1 = buildRow([0, 1, 2, 3, 0, 1, 2, 3], [1, 1, 1, 1, 2, 2, 2, 2]);
+const ROW_2 = buildRow([2, 3, 0, 1, 3, 0, 1, 2], [2, 2, 2, 2, 1, 1, 1, 1]);
 
 export default function MarqueeSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
