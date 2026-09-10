@@ -3,17 +3,23 @@ import ProjectArt from "../components/ProjectArt";
 import { PROJECTS } from "../data/projects";
 import type { ProjectMeta } from "../data/projects";
 
-type Tile = { project: ProjectMeta; variant: 1 | 2 | 3 };
-
-function buildRow(order: number[], variants: (1 | 2 | 3)[]): Tile[] {
-  const single = order.map((i, idx) => ({ project: PROJECTS[i], variant: variants[idx] }));
-  return [...single, ...single, ...single];
-}
+type Variant = 1 | 2 | 3;
+type Tile = { project: ProjectMeta; variant: Variant };
 
 // Sólo capturas de escritorio (1 y 2): la variante móvil es vertical y no encaja
 // en los mosaicos apaisados del marquee.
-const ROW_1 = buildRow([0, 1, 2, 3, 0, 1, 2, 3], [1, 1, 1, 1, 2, 2, 2, 2]);
-const ROW_2 = buildRow([2, 3, 0, 1, 3, 0, 1, 2], [2, 2, 2, 2, 1, 1, 1, 1]);
+function buildRow(offset: number, firstVariant: Variant, secondVariant: Variant): Tile[] {
+  const single: Tile[] = [];
+  for (const variant of [firstVariant, secondVariant]) {
+    PROJECTS.forEach((_, i) => {
+      single.push({ project: PROJECTS[(i + offset) % PROJECTS.length], variant });
+    });
+  }
+  return [...single, ...single, ...single];
+}
+
+const ROW_1 = buildRow(0, 1, 2);
+const ROW_2 = buildRow(3, 2, 1);
 
 export default function MarqueeSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
