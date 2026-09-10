@@ -17,6 +17,8 @@ Todo lo necesario para publicar mis servicios y dirigir gente al portafolio.
 | `qr-portafolio.png` / `.svg` | QR al portafolio (fondo claro) |
 | `qr-portafolio-oscuro.png` | QR al portafolio (fondo oscuro) |
 | `qr-whatsapp.png` / `.svg` | QR que abre chat de WhatsApp directo |
+| `flyer-inmobiliarias.png` | Flyer dirigido a agentes y agencias inmobiliarias |
+| `assets/` | Capturas de Grupo Lemus, InmoCRM y Recorridos |
 
 Los `.svg` son vectoriales: escalan a cualquier tamaño sin pixelarse, úsalos
 para lonas, vinil o impresión grande. Los `.png` están a 1200 px (≈10 cm a 300 dpi).
@@ -132,6 +134,50 @@ kiansaavedra.vercel.app
 WhatsApp: +1 (951) 298-7671
 Based in Rosarito, B.C. — remote work welcome.
 ```
+
+---
+
+## Inmobiliarias — el nicho donde ya tienes ventaja
+
+`flyer-inmobiliarias.png`
+
+Aquí no compites como "otro que hace páginas web". Tienes producto propio y
+conectado a **EasyBroker**, que es lo que ya usan las agencias serias en México:
+
+- **Sitios inmobiliarios en vivo** — El Casa Rosarito y Grupo Lemus
+- **Recorridos 3D con asesor IA** — recorridos-zeta.vercel.app
+- **InmoCRM** — inmocrm-omega.vercel.app
+- **Publicador automático** a Facebook e Instagram desde EasyBroker
+
+Esa combinación no la tiene el diseñador promedio. Guíate por eso al cobrar.
+
+### Mensaje para mandar por WhatsApp o DM a una agencia
+
+```
+Hola [nombre], soy Kian Saavedra, desarrollo software para inmobiliarias
+aquí en Rosarito.
+
+Hice los sitios de El Casa Rosarito y Grupo Lemus, y tengo dos herramientas
+que se conectan directo a EasyBroker:
+
+• Recorridos 3D de tus propiedades, con un asesor de IA que contesta dentro
+  del recorrido las 24 horas. Un enlace por propiedad, listo para WhatsApp.
+• Un CRM que te dice a quién llamar hoy y te avisa de los prospectos que
+  llevan días sin seguimiento.
+
+¿Te muestro cómo se vería con tus propias propiedades? Son 10 minutos.
+
+Mi portafolio: kiansaavedra.vercel.app
+```
+
+### Dónde encontrarlos
+
+- Asociaciones locales: AMPI Tijuana / Baja California
+- Grupos de Facebook de asesores inmobiliarios de BC
+- Anuncios de propiedades en Marketplace e Inmuebles24 — ahí está el agente,
+  y ya te dice si su foto y su ficha están descuidadas
+- Oficinas de Century 21, RE/MAX y locales en Rosarito: el flyer impreso
+  entregado en mano funciona bien con este gremio
 
 ---
 
